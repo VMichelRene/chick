@@ -14,6 +14,8 @@ clean:
 	ocamlbuild -clean
 	rm -f a1.byte test.out
 
+install:
+
 .SUFFIXES:
 .SUFFIXES: .ml .byte
 
