@@ -8,5 +8,6 @@
 *.cmx[as]
 *.cmti
 *.annot
-test.byte
+*.byte
+*.out
 _build/
