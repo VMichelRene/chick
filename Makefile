@@ -10,13 +10,14 @@ OCB       = ocamlbuild   $(OCB_FLAGS)
 
 test: test.byte 
 	test.byte >test.out
+
 clean:
 	ocamlbuild -clean
 	rm -f a1.byte test.out
 
 install:
 
-git: clean
+git: 
 	git add .
 	git commit -m "maj"
 	git push -u orig main
