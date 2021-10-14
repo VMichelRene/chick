@@ -10,4 +10,5 @@
 *.annot
 *.byte
 *.out
+test.out
 _build/
