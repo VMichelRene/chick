@@ -8,7 +8,13 @@ build: [
   ["./configure" "--prefix=%{prefix}%"]
   [make]
 ]
+
 install: [make "install"]
+
+depends: [
+  "ocaml" {>= "4.08.1" & < "4.13"}
+]
+
 dev-repo: "git+https://github.com/VMichelRene/chick"
 url {
   src: "https://github.com/VMichelRene/chick/archive/refs/tags/0.1.tar.gz"
