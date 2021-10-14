@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "chick"
-version: "~dev"
+version: "1.0"
 synopsis: "Test jupyter"
 maintainer: "VMichelRene <michelorange024@gmail.com>"
 authors: "VMichelRene <michelorange024@gmail.com>"
