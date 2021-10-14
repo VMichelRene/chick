@@ -8,10 +8,5 @@
 *.cmx[as]
 *.cmti
 *.annot
-src/META
-test/test.byt
-test/test.exe
-toplevel/META
-.merlin
+test.byte
 _build/
-num.install
