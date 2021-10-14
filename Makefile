@@ -16,6 +16,11 @@ clean:
 
 install:
 
+git: clean
+	git add .
+	git commit -m "maj"
+	git push -u orig main
+
 .SUFFIXES:
 .SUFFIXES: .ml .byte
 
