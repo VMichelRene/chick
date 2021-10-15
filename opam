@@ -8,7 +8,7 @@ maintainer: "VMichelRene <michelorange024@gmail.com>"
 authors: "VMichelRene <michelorange024@gmail.com>"
 dev-repo: "git+https://github.com/VMichelRene/chick"
 install: [make "install"]
-depends: ["ocaml";"ocamlfind"]
+depends: ["ocaml" "ocamlfind"]
 build: [make]
 url {
   src: "https://github.com/VMichelRene/chick/archive/refs/tags/0.1.tar.gz"
