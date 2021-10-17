@@ -36,18 +36,32 @@ module Make (R : R.S) (L : L.S) (E : E.S) = struct
        | M1 a                -> Elt  (M.from_s a) 
        | Inf (M1 a, M1 b)    -> Re   (M.from_s a,M.from_s b)
        | Eq  (M1 a, M1 b)    -> Egal (M.from_s a,M.from_s b)
+       | _                   -> raise Erreur
      in
         sprintf "%s\n" s
     |>  Lexing.from_string
     |>  ParserP4.main LexerP4.token
     |>  aux
 
-  let createElt          = function (Elt a, Elt b) -> Elt (M.createL (a,b)) 
-  let createRe           = function (Elt a, Elt b) -> Re (a,b) 
-  let createEgal         = function (Elt a, Elt b) -> Egal (a,b) 
+  let createElt          = function 
+     | (Elt a, Elt b) -> Elt (M.createL (a,b)) 
+     | _              -> raise Erreur
 
-  let p1   = function Elt a   -> Elt (M.p1 a)    (* p1 a*b = a *) 
-  let p2   = function Elt a   -> Elt (M.p2 a)    (* p1 a*b = a *) 
+  let createRe           = function 
+     | (Elt a, Elt b) -> Re (a,b) 
+     | _              -> raise Erreur
+
+  let createEgal         = function 
+     | (Elt a, Elt b) -> Egal (a,b) 
+     | _              -> raise Erreur
+
+  let p1   = function 
+     | Elt a          -> Elt (M.p1 a)    (* p1 a*b = a *) 
+     | _              -> raise Erreur
+
+  let p2   = function 
+     | Elt a          -> Elt (M.p2 a)    (* p1 a*b = a *) 
+     | _              -> raise Erreur
 
   let sort = function
      |Elt    a    -> Elt  (M.sort a) 
@@ -58,10 +72,12 @@ module Make (R : R.S) (L : L.S) (E : E.S) = struct
   let subRe1 = function
     | (Re    (x1,y1),Egal (x2,y2)) when x1=x2 -> createRe    (Elt y2,Elt y1)
     | (Egal  (x1,y1),Egal (x2,y2)) when x1=x2 -> createEgal  (Elt y2,Elt y1)
+    | _                                       -> raise Erreur
 
   let subRe2 = function
     | (Re    (x1,y1),Egal (x2,y2)) when y1=x2 -> createRe    (Elt x1,Elt y2)
     | (Egal  (x1,y1),Egal (x2,y2)) when y1=x2 -> createEgal  (Elt x1,Elt y2)
+    | _                                       -> raise Erreur
 
 end
 

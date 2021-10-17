@@ -1,4 +1,5 @@
 open Printf
+exception Erreur
 
 module Make (L : L.S) (E : E.S) = struct 
   type t =
@@ -24,7 +25,11 @@ module Make (L : L.S) (E : E.S) = struct
 
  let createL (a,b) = L (a,b)
 
- let p1 = function L (a,_) -> a
- let p2 = function L (_,b) -> b
+ let p1 = function 
+     | L (a,_) -> a 
+     | _       -> raise Erreur
+ let p2 = function 
+     | L (_,b) -> b 
+     | _ -> raise Erreur
 end
 

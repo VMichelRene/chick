@@ -1,6 +1,6 @@
 open Printf
 exception ErreurTrace
-exception ErreurDemo
+exception Erreur
 
 (* utilise un magma avec une loi commutative qui comporte une relation d'equivalence *) 
 module M =Magma_commutatif_re_equiv.Make 
@@ -14,49 +14,69 @@ let r1 ab = M.createRe (ab,M.p1 ab)
 let r2 ab = M.createRe (ab,M.p2 ab)
 (* Règle 3 x<=a et x<=b => x<=a*b *)
 let r3 = function
-   (M.Re (x1,a),M.Re (x2,b))  when x1=x2  -> M.createRe (M.Elt x1,M.createElt (M.Elt a,M.Elt b))
-
+   | (M.Re (x1,a),M.Re (x2,b))  when x1=x2  -> M.createRe (M.Elt x1,M.createElt (M.Elt a,M.Elt b))
+   | _                                      -> raise Erreur
 (********************************)
 (* Trace des lois               *)
 (********************************)
+(* backslash *)
+let rec bck n = if n=1 then "\\" else "\\"^bck (n-1)
+
 (* antisymetrie a<=b et b<=a => a=b *)
 let antisymetrie n3 ((n1,i1),(n2,i2)) = 
   let i3=M.antisymetrie (i1,i2) in
-  printf "$\underbrace{%s}_{%s} \land \underbrace{%s}_{%s} \Rightarrow $\overbrace{%s}^{%s}$ Règle antisymetrique\\\\\n" 
+  printf "$%sunderbrace{%s}_{%s} %sland %sunderbrace{%s}_{%s} %sRightarrow $%soverbrace{%s}^{%s}$ Règle antisymetrique%s\n" 
+     (bck 1) 
      (M.to_s  i1) n1 
+     (bck 1) (bck 1) 
      (M.to_s  i2) n2 
+     (bck 1) (bck 1) 
      (M.to_s  i3) n3
+     (bck 4)
   ;
   (n3,i3)
 
 (* loi R1 a*b<=a *)
 let r1 n2 (n1,i1) = 
   let i2=r1 i1 in
-  printf "$\overbrace{%s}^{%s}$ Règle 1\\\\ \n" (M.to_s i2) n2;
+  printf "$%soverbrace{%s}^{%s}$ Règle 1%s \n" 
+    (bck 1) 
+    (M.to_s i2) n2
+    (bck 4)
+  ;
   (n2,i2)
 
 
 (* loi R2 a*b<=b *)
 let r2 n2 (n1,i1) = 
   let i2=r2 i1 in
-  printf "$\overbrace{%s}^{%s}$ Règle 2\\\\ \n" (M.to_s i2) n2;
+  printf "$%soverbrace{%s}^{%s}$ Règle 2%s \n" 
+    (bck 1) 
+    (M.to_s i2) n2
+    (bck 4)
+  ;
   (n2,i2)
 
 (* loi R3 x<=a et x<=b => x<=a*b *)
 
 let r3 n3 ((n1,i1),(n2,i2)) = 
   let i3=r3 (i1,i2) in
-  printf "$\underbrace{%s}_{%s} \land \underbrace{%s}_{%s} \Rightarrow $\overbrace{%s}^{%s}$ Règle 3\\\\\n" 
-     (M.to_s i1) n1 
-     (M.to_s i2) n2 
-     (M.to_s i3) n3
+  printf "$%sunderbrace{%s}_{%s} %sland %sunderbrace{%s}_{%s} %sRightarrow $%soverbrace{%s}^{%s}$ Règle 3%s\n" 
+    (bck 1) 
+    (M.to_s i1) n1 
+    (bck 1) (bck 1) 
+    (M.to_s i2) n2 
+    (bck 1) (bck 1) 
+    (M.to_s i3) n3
+    (bck 4)
   ;
   (n3,i3)
 
 (* Utilitaires              *)
 let s_conv s     = M.to_s (M.from_s s)
 let create n s   = (n,M.from_s s)
-let ctrl (_,i) s = M.to_s i=   s_conv s
+let ctrl (_,i) s = 
+  if M.to_s i <>   (s_conv s) then raise Erreur
 
 (****************************)
 (* Point de la démo         *)
@@ -100,7 +120,7 @@ let demo_commutativite () =
   let i1=r1 "e1" i0 in
   let i2=r2 "e2" i0 in
   let i3=r3 "e3" (i2,i1) in
-  ctrl i3 "a+b <= b+a";   
+  ctrl i3 "a+b <= b+a";  
   pied (); 
 
   point_mq 0 "b+a <= a+b"; 
