@@ -13,7 +13,7 @@ test: test.byte
 
 clean:
 	ocamlbuild -clean
-	rm -f a1.byte test.out
+	rm -f test.byte test.out
 
 install:
 
