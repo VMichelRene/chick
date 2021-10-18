@@ -11,7 +11,7 @@ install: [make "install"]
 depends: ["ocaml" "ocamlfind" "zarith"]
 build: [make]
 url {
-  src: "https://github.com/VMichelRene/chick/archive/refs/tags/0.1.tar.gz"
-  checksum: "md5=77fb2b62bd102f9639d20bdf3065aee9"
+  src: "https://github.com/VMichelRene/chick/archive/refs/tags/0.2.tar.gz"
+  checksum: "md5=3ed271e5557675ae912affd224e3e636"
 }
 
