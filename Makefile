@@ -1,4 +1,4 @@
-OCB_FLAGS = -pkgs unix,zarith \
+OCB_FLAGS = -pkgs zarith \
 -I Outils \
 -I Struct \
 -I Parser/P1 \
