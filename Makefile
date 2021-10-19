@@ -9,7 +9,7 @@ OCB_FLAGS = -pkgs zarith \
 OCB       = ocamlbuild   $(OCB_FLAGS)
 
 test: test.byte 
-	test.byte >test.out
+	./test.byte >test.out
 
 clean:
 	ocamlbuild -clean
