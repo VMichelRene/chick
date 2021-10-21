@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "chick"
-version: "0.5"
+version: "0.6"
 synopsis: "Help package in writing mathematics documents under Jupyter"
 description: """\
 Toolbox to make mathematical statements and demonstrations more 
@@ -20,7 +20,7 @@ install: [make "lib"]
 depends: ["ocaml" "ocamlfind" "zarith"]
 build: [make "test"]
 url {
-  src: "https://github.com/VMichelRene/chick/archive/refs/tags/0.5.tar.gz"
+  src: "https://github.com/VMichelRene/chick/archive/refs/tags/0.6.tar.gz"
   checksum: "md5=6aacedd09d48c4c7a4b7b721f8433e1d"
 }
 
