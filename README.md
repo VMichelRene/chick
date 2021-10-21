@@ -1,4 +1,6 @@
 # chick
-Modeste outil de démonstration guidée sur un problème utilisant une structure de magma muni d'une relation d'équivalence. 
+Please don't use it.
 
-Pour produire test.lyx 
+Modeste outil de démonstration guidée sur un problème utilisant 
+une structure de magma muni d'une relation d'équivalence. 
+Cette version est un prototype, merci de ne pas l'utiliser.
