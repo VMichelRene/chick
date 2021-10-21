@@ -21,6 +21,6 @@ depends: ["ocaml" "ocamlfind" "ocamlbuild" "zarith"]
 build: [make "test"]
 url {
   src: "https://github.com/VMichelRene/chick/archive/refs/tags/0.7.tar.gz"
-  checksum: "md5=b3a91ee1313671a2c134686ce2d748ca"
+  checksum: "md5=cbbe63c6a259e95f993b7c1307a9a539"
 }
 
