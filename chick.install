@@ -1,0 +1,31 @@
+lib: [
+  "_build/install/default/lib/chick/opam" {"opam"}
+  "_build/install/default/lib/chick/chick.cma"
+  "_build/install/default/lib/chick/outils.cmi"
+  "_build/install/default/lib/chick/lexerP1.cmi"
+  "_build/install/default/lib/chick/parserP1.cmi"
+  "_build/install/default/lib/chick/parserTypeP1.cmi"
+  "_build/install/default/lib/chick/lexerP2.cmi"
+  "_build/install/default/lib/chick/parserP2.cmi"
+  "_build/install/default/lib/chick/parserTypeP2.cmi"
+  "_build/install/default/lib/chick/lexerP3.cmi"
+  "_build/install/default/lib/chick/parserP3.cmi"
+  "_build/install/default/lib/chick/parserTypeP3.cmi"
+  "_build/install/default/lib/chick/lexerP4.cmi"
+  "_build/install/default/lib/chick/parserP4.cmi"
+  "_build/install/default/lib/chick/parserTypeP4.cmi"
+  "_build/install/default/lib/chick/lexer2.cmi"
+  "_build/install/default/lib/chick/parser2.cmi"
+  "_build/install/default/lib/chick/parserType2.cmi"
+  "_build/install/default/lib/chick/anneau.cmi"
+  "_build/install/default/lib/chick/e.cmi"
+  "_build/install/default/lib/chick/ens.cmi"
+  "_build/install/default/lib/chick/l.cmi"
+  "_build/install/default/lib/chick/magma_commutatif.cmi"
+  "_build/install/default/lib/chick/magma_commutatif_re_equiv.cmi"
+  "_build/install/default/lib/chick/magma.cmi"
+  "_build/install/default/lib/chick/r.cmi"
+]
+doc: [
+  "_build/install/default/doc/chick/README.md"
+]
