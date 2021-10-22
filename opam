@@ -21,6 +21,6 @@ run-test: [make "test"]
 build: [make "lib"]
 url {
   src: "https://github.com/VMichelRene/chick/archive/refs/tags/0.9.tar.gz"
-  checksum: "md5=cbbe63c6a259e95f993b7c1307a9a539"
+  checksum: "md5=1c2b8d0cb84702929b3d7b3b877dcb3d"
 }
 
